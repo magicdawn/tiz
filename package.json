@@ -1,0 +1,44 @@
+{
+  "name": "tiz",
+  "version": "0.0.1",
+  "description": "Nimitiz, a web framework for self use",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test-cover": "istanbul cover _mocha -- -u exports",
+    "report-cover": "codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magicdawn/tiz.git"
+  },
+  "keywords": [
+    "tiz",
+    "nimitiz",
+    "predator",
+    "predator-kit",
+    "web",
+    "modern",
+    "express-modern"
+  ],
+  "author": "magicdawn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magicdawn/tiz/issues"
+  },
+  "homepage": "https://github.com/magicdawn/tiz#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "codecov": "^1.0.1",
+    "eslint": "^3.18.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "should": "^8.3.1"
+  },
+  "files": [
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "index.js"
+  ]
+}

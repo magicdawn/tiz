@@ -15,11 +15,9 @@
   "keywords": [
     "tiz",
     "nimitiz",
-    "predator",
-    "predator-kit",
-    "web",
-    "modern",
-    "express-modern"
+    "koa",
+    "impress-router",
+    "impress-router-table"
   ],
   "author": "magicdawn",
   "license": "MIT",
@@ -27,7 +25,17 @@
     "url": "https://github.com/magicdawn/tiz/issues"
   },
   "homepage": "https://github.com/magicdawn/tiz#readme",
-  "dependencies": {},
+  "dependencies": {
+    "impress-router": "^1.4.1",
+    "impress-router-table": "^0.1.0",
+    "koa": "^2.2.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-favicon": "^2.0.0",
+    "koa-logger": "^2.0.1",
+    "koa-send": "^3.3.0",
+    "koa-static": "^3.0.0"
+  },
   "devDependencies": {
     "codecov": "^1.0.1",
     "eslint": "^3.18.0",

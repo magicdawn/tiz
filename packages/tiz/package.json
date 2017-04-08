@@ -2,7 +2,7 @@
   "name": "tiz",
   "version": "0.0.1",
   "description": "Nimitiz, a web framework for self use",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
     "test-cover": "istanbul cover _mocha -- -u exports",

@@ -1,0 +1,39 @@
+{
+  "name": "tiz-generate-eslint",
+  "version": "0.0.1",
+  "description": "Nimitiz, a web framework for self use",
+  "main": "index.js",
+  "bin": {
+    "tiz-generate-eslint": "bin.js"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test-cover": "istanbul cover _mocha -- -u exports",
+    "report-cover": "codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magicdawn/tiz.git"
+  },
+  "keywords": [
+    "tiz",
+    "eslint"
+  ],
+  "author": "magicdawn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magicdawn/tiz/issues"
+  },
+  "homepage": "https://github.com/magicdawn/tiz",
+  "dependencies": {
+    "tiz": "^0.0.1"
+  },
+  "devDependencies": {
+    "codecov": "^1.0.1",
+    "eslint": "^3.18.0",
+    "fs-extra": "^2.1.2",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "should": "^8.3.1"
+  }
+}

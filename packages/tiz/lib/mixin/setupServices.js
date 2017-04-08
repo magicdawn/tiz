@@ -9,7 +9,7 @@ const _ = require('lodash')
 const LocalUtil = require('../util.js')
 
 module.exports = function() {
-  if (!this.configs.tiz.globals.services) return
+  this.services = this.services || {}
 
   const files = this._getJsFiles('app/services')
   for (let file of files) {
@@ -18,11 +18,19 @@ module.exports = function() {
     const Key = _.upperFirst(key)
     const Service = require(pathjoin(this.projectHome, 'app/services', file))
 
-    if (global[Key]) {
-      console.warn('Tiz services ignore: existing global.%s', Key)
+    if (this.services[Key]) {
+      console.warn('Tiz services ignore: existing service Key = ', Key)
       continue
     }
 
-    global[Key] = Service
+    this.services[Key] = Service
+
+    if (this.configs.tiz.globals.services) {
+      if (global[Key]) {
+        console.warn('Tiz services ignore: existing global.%s', Key)
+      } else {
+        global[Key] = Service
+      }
+    }
   }
 }

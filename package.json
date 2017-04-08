@@ -1,56 +1,5 @@
 {
-  "name": "tiz",
-  "version": "0.0.1",
-  "description": "Nimitiz, a web framework for self use",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha",
-    "test-cover": "istanbul cover _mocha -- -u exports",
-    "report-cover": "codecov"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/magicdawn/tiz.git"
-  },
-  "keywords": [
-    "tiz",
-    "nimitiz",
-    "koa",
-    "impress-router",
-    "impress-router-table"
-  ],
-  "author": "magicdawn",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/magicdawn/tiz/issues"
-  },
-  "homepage": "https://github.com/magicdawn/tiz#readme",
-  "dependencies": {
-    "glob": "^7.1.1",
-    "impress-router": "^1.4.1",
-    "impress-router-table": "^0.1.1",
-    "js-yaml": "^3.8.2",
-    "koa": "^2.2.0",
-    "koa-conditional-get": "^2.0.0",
-    "koa-etag": "^3.0.0",
-    "koa-favicon": "^2.0.0",
-    "koa-logger": "^2.0.1",
-    "koa-send": "^3.3.0",
-    "koa-static": "^3.0.0",
-    "ms": "^1.0.0",
-    "sequelize": "^3.30.4"
-  },
   "devDependencies": {
-    "codecov": "^1.0.1",
-    "eslint": "^3.18.0",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.4.5",
-    "should": "^8.3.1"
-  },
-  "files": [
-    "package.json",
-    "README.md",
-    "LICENSE",
-    "index.js"
-  ]
+    "lerna": "^2.0.0-rc.1"
+  }
 }

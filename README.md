@@ -1,4 +1,6 @@
 # tiz
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/magicdawn/tiz.svg)](https://greenkeeper.io/)
 > Nimitiz, a web framework for self use
 
 [![Build Status](https://img.shields.io/travis/magicdawn/tiz.svg?style=flat-square)](https://travis-ci.org/magicdawn/tiz)

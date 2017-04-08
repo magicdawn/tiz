@@ -13,5 +13,5 @@ module.exports = {
 
   async comments(ctx) {
     ctx.body = await PostComment.findAll()
-  }
+  },
 }

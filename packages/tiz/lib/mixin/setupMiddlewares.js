@@ -11,6 +11,7 @@ const favicon = require('koa-favicon')
 const serve = require('koa-static')
 const logger = require('koa-logger')
 const routing = require('impress-router-table')
+const bodyparser = require('koa-bodyparser')
 const ms = require('ms')
 const pathjoin = require('path').join
 
@@ -26,6 +27,11 @@ const builtin = {
     if (!Array.isArray(list)) {
       list = [list]
     }
+    list = list.filter(Boolean)
+    if (!list.length) return
+
+    const router = new Router()
+    this.use(router)
 
     for (let item of list) {
       const prefix = item.prefix
@@ -47,7 +53,7 @@ const builtin = {
         }
       }
 
-      this.router.use(item.prefix, serve(root, options))
+      router.use(item.prefix, serve(root, options))
     }
   },
 
@@ -57,8 +63,13 @@ const builtin = {
     }
   },
 
+  bodyparser() {
+    const options = this.configs.middlewares.bodyparserOptions
+    this.use(bodyparser(options))
+  },
+
   routing() {
-    routing(this.appHome, this.router)
+    this.use(routing(this.appHome))
   }
 }
 
@@ -66,10 +77,6 @@ module.exports = function() {
   // cache
   this.use(conditional())
   this.use(etag())
-
-  // router
-  this.router = new Router()
-  this.use(this.router)
 
   // custom middlewares
   for (let item of this.configs.middlewares) {
@@ -85,6 +92,6 @@ module.exports = function() {
     }
 
     // standard middleware
-    this.router.use(item)
+    this.use(item)
   }
 }

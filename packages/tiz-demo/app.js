@@ -7,9 +7,10 @@
 require('log-reject-error')()
 const Tiz = require('tiz')
 
+process.chdir(__dirname)
 const app = new Tiz(__dirname)
 app.initTiz()
+module.exports = app
+
 console.log(app.configs)
 console.log(app.models)
-
-module.exports = app

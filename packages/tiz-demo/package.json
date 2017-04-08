@@ -1,0 +1,19 @@
+{
+  "name": "tiz-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd node_modules; ln -sf ../app;"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "log-reject-error": "^0.0.2",
+    "tiz": "^0.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-plugin-magicdawn": "^0.0.2"
+  }
+}

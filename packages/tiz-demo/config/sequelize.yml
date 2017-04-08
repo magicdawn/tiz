@@ -1,0 +1,12 @@
+#
+# Sequelize options
+#
+
+# pool
+pool:
+  max: 5
+  min: 0
+  idle: 10000
+
+# log
+logging: null

@@ -1,0 +1,9 @@
+#
+# common env config
+#
+
+# app port
+port: 3000
+
+# db
+connection: 'mysql-local'

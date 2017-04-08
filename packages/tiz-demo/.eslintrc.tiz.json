@@ -1,0 +1,8 @@
+{
+  "globals": {
+    "Post": true,
+    "WaTest": true,
+    "PostComment": true,
+    "TestService": true
+  }
+}

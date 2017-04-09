@@ -1,5 +1,6 @@
 {
   "globals": {
+    "tiz": true,
     "Post": true,
     "WaTest": true,
     "PostComment": true,

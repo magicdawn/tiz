@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "koa-multer": "^1.0.1",
     "log-reject-error": "^0.0.2",
     "tiz": "^0.0.1"
   },

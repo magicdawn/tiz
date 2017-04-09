@@ -19,6 +19,9 @@ const Tiz = module.exports = class Tiz extends Koa {
    */
 
   initTiz() {
+    // global var
+    global.tiz = this
+
     // read configs
     this.configs = this.readConfig()
 

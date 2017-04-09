@@ -8,6 +8,9 @@
 # favicon: false
 # favicon: app/public/icon/favicon.ico
 
+# upload: 
+#
+
 #
 # public: Object | Array<Object>
 #

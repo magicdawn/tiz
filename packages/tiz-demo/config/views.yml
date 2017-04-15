@@ -1,0 +1,13 @@
+#
+# views
+#
+
+# root dir
+root: app/views
+
+# map
+map:
+  njk: nunjucks
+
+# default extension
+extension: 'njk'

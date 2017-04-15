@@ -12,6 +12,7 @@ const serve = require('koa-static')
 const logger = require('koa-logger')
 const routing = require('impress-router-table')
 const bodyparser = require('koa-bodyparser')
+const views = require('koa-views')
 const ms = require('ms')
 const pathjoin = require('path').join
 
@@ -66,6 +67,17 @@ const builtin = {
   bodyparser() {
     const options = this.configs.middlewares.bodyparserOptions
     this.use(bodyparser(options))
+  },
+
+  views() {
+    const options = this.configs.views
+    const root = pathjoin(this.projectHome, options.root)
+
+    const opts = {
+      map: options.map,
+      extension: options.extension,
+    }
+    this.use(views(root, opts))
   },
 
   routing() {

@@ -15,6 +15,7 @@ const bodyparser = require('koa-bodyparser')
 const views = require('koa-views')
 const ms = require('ms')
 const pathjoin = require('path').join
+const _ = require('lodash')
 
 const builtin = {
   favicon() {
@@ -72,10 +73,12 @@ const builtin = {
   views() {
     const options = this.configs.views
     const root = pathjoin(this.projectHome, options.root)
+    const map = _.mapKeys(options.map, (v, k) => _.trimStart(k, '.'))
+    const extension = _.trimStart(options.extension, '.')
 
     const opts = {
-      map: options.map,
-      extension: options.extension,
+      map,
+      extension,
     }
     this.use(views(root, opts))
   },

@@ -7,7 +7,7 @@ root: app/views
 
 # map
 map:
-  njk: nunjucks
+  .njk: nunjucks
 
 # default extension
-extension: 'njk'
+extension: .njk

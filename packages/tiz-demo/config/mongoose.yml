@@ -1,0 +1,15 @@
+#
+# Sequelize options
+# https://sequelize.readthedocs.io/en/v3/api/sequelize/
+#
+
+# dir: app/models
+# options:
+#   # pool
+#   pool:
+#     max: 5
+#     min: 0
+#     idle: 10000
+#
+#   # log
+#   logging: null

@@ -9,5 +9,9 @@ module.exports = {
   globals: {
     models: true,
     services: true,
-  }
+  },
+
+  plugins: [
+    'tiz-sequelize',
+  ]
 }

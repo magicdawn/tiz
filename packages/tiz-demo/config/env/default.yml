@@ -6,4 +6,5 @@
 port: 5000
 
 # db
-connection: 'mysql-local'
+sequelize:
+  default-connection: 'mysql-local'

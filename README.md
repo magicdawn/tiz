@@ -17,6 +17,11 @@ $ npm i tiz --save
 const tiz = require('tiz');
 ```
 
+## Note
+
+- `app.config` singular
+- `app.models` / `app.services` / `app.controllers` / `app.policies`
+
 ## Changelog
 [CHANGELOG.md](CHANGELOG.md)
 

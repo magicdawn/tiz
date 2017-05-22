@@ -4,28 +4,28 @@
  * middlewares
  */
 
+const pathjoin = require('path').join
 const Router = require('impress-router')
+const routing = require('impress-router-table')
 const conditional = require('koa-conditional-get')
 const etag = require('koa-etag')
 const favicon = require('koa-favicon')
 const serve = require('koa-static')
 const logger = require('koa-logger')
-const routing = require('impress-router-table')
 const bodyparser = require('koa-bodyparser')
 const views = require('koa-views')
 const ms = require('ms')
-const pathjoin = require('path').join
 const _ = require('lodash')
 
 const builtin = {
   favicon() {
-    if (this.configs.static.favicon) {
+    if (this.config.static.favicon) {
       this.use(favicon(pathjoin(this.projectHome, this.config.static.favicon)))
     }
   },
 
   static() {
-    let list = this.configs.static.public
+    let list = this.config.static.public
     if (!Array.isArray(list)) {
       list = [list]
     }
@@ -66,12 +66,12 @@ const builtin = {
   },
 
   bodyparser() {
-    const options = this.configs.middlewares.bodyparserOptions
+    const options = this.config.middlewares.bodyparserOptions
     this.use(bodyparser(options))
   },
 
   views() {
-    const options = this.configs.views
+    const options = this.config.views
     const root = pathjoin(this.projectHome, options.root)
     const map = _.mapKeys(options.map, (v, k) => _.trimStart(k, '.'))
     const extension = _.trimStart(options.extension, '.')
@@ -94,7 +94,7 @@ module.exports = function() {
   this.use(etag())
 
   // custom middlewares
-  for (let item of this.configs.middlewares) {
+  for (let item of this.config.middlewares) {
     // built in
     if (typeof item === 'string') {
       if (!builtin[item]) {

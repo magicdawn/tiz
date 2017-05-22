@@ -1,0 +1,7 @@
+#
+# production config
+#
+
+## db
+sequelize:
+  default-connection: 'mysql-prod'

@@ -25,7 +25,7 @@ module.exports = function() {
 
     this.services[Key] = Service
 
-    if (this.configs.tiz.globals.services) {
+    if (this.config.tiz.globals.services) {
       if (global[Key]) {
         console.warn('Tiz services ignore: existing global.%s', Key)
       } else {

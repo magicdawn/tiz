@@ -12,5 +12,5 @@ const app = new Tiz(__dirname)
 app.initTiz()
 module.exports = app
 
-console.log(app.configs)
+console.log(app.config)
 console.log(app.models)

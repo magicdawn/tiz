@@ -30,12 +30,14 @@ const Tiz = module.exports = class Tiz extends Koa {
    * init for Tiz
    */
 
-  initTiz() {
+  async start(startConfig) {
     // global var
     global.tiz = this
+    const app = this
+    this.startConfig = startConfig
 
     // read configs
-    this.config = this.readConfig()
+    this.config = this.readConfig(startConfig)
 
     // service
     this.setupServices()
@@ -45,6 +47,21 @@ const Tiz = module.exports = class Tiz extends Koa {
 
     // plugins
     this.setupPlugins()
+
+    // await bootstrap
+    await require(this.appHome + '/bootstrap.js')
+
+    // listen
+    if (this.config.listen !== false) {
+      await new Promise((resolve, reject) => {
+        app.listen(this.config.port, function() {
+          console.log('tiz listening at http://localhost:%s', this.address().port)
+          app.server = this
+          app.emit('ready')
+          resolve()
+        })
+      })
+    }
   }
 }
 

@@ -35,7 +35,6 @@ const Tiz = module.exports = class Tiz extends Koa {
     // global var
     global.tiz = this
     const app = this
-    this.startConfig = startConfig
 
     // read configs
     this.config = this.readConfig(startConfig)
@@ -51,7 +50,7 @@ const Tiz = module.exports = class Tiz extends Koa {
 
     // await bootstrap
     const bsp = this.appHome + '/bootstrap.js'
-    if (fs.existsAync(bsp)) {
+    if (fs.existsSync(bsp)) {
       await require(bsp).call(this, this)
     }
 

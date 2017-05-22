@@ -2,6 +2,7 @@
 
 const assert = require('assert')
 const pathresolve = require('path').resolve
+const fs = require('fs')
 const Koa = require('koa')
 const mixins = require('./mixin')
 const LocalUtil = require('./util.js')
@@ -49,7 +50,10 @@ const Tiz = module.exports = class Tiz extends Koa {
     this.setupPlugins()
 
     // await bootstrap
-    await require(this.appHome + '/bootstrap.js')
+    const bsp = this.appHome + '/bootstrap.js'
+    if (fs.existsAync(bsp)) {
+      await require(bsp).call(this, this)
+    }
 
     // listen
     if (this.config.listen !== false) {

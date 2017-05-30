@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/magicdawn/tiz#readme",
   "dependencies": {
+    "consolidate": "^0.14.5",
     "glob": "^7.1.1",
     "impress-router": "^1.4.1",
     "impress-router-table": "^0.1.1",
@@ -35,15 +36,13 @@
     "koa-conditional-get": "^2.0.0",
     "koa-etag": "^3.0.0",
     "koa-favicon": "^2.0.0",
+    "koa-generic-views": "^0.1.0",
     "koa-logger": "^2.0.1",
     "koa-multer": "^1.0.1",
     "koa-send": "^3.3.0",
     "koa-static": "^3.0.0",
-    "koa-views": "^6.0.1",
     "minimist": "^1.2.0",
     "ms": "^1.0.0",
-    "nunjucks": "^3.0.0",
-    "sequelize": "^3.30.4",
     "tiz-sequelize": "^0.0.2"
   },
   "devDependencies": {

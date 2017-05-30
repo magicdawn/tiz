@@ -42,11 +42,14 @@ const Tiz = module.exports = class Tiz extends Koa {
     // service
     this.setupServices()
 
-    // middlewares
-    this.setupMiddlewares()
-
     // plugins
     this.setupPlugins()
+
+    // views
+    this.setupViews()
+
+    // middlewares
+    this.setupMiddlewares()
 
     // await bootstrap
     const bsp = this.appHome + '/bootstrap.js'

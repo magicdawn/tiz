@@ -13,7 +13,6 @@ const favicon = require('koa-favicon')
 const serve = require('koa-static')
 const logger = require('koa-logger')
 const bodyparser = require('koa-bodyparser')
-const views = require('koa-views')
 const ms = require('ms')
 const _ = require('lodash')
 
@@ -68,19 +67,6 @@ const builtin = {
   bodyparser() {
     const options = this.config.middlewares.bodyparserOptions
     this.use(bodyparser(options))
-  },
-
-  views() {
-    const options = this.config.views
-    const root = pathjoin(this.projectHome, options.root)
-    const map = _.mapKeys(options.map, (v, k) => _.trimStart(k, '.'))
-    const extension = _.trimStart(options.extension, '.')
-
-    const opts = {
-      map,
-      extension,
-    }
-    this.use(views(root, opts))
   },
 
   routing() {

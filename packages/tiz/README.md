@@ -3,15 +3,18 @@
 
 ## Install
 ```sh
-$ npm i yo generator-tiz -g
+$ npm i tiz --save
 ```
 
-then
-```sh
-$ yo tiz
+## API
+```js
+const tiz = require('tiz');
 ```
 
-Happy Hacking
+## Note
+
+- `app.config` singular
+- `app.models` / `app.services` / `app.controllers` / `app.policies`
 
 ## Changelog
 [CHANGELOG.md](CHANGELOG.md)

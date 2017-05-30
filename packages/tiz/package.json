@@ -1,6 +1,6 @@
 {
   "name": "tiz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Nimitiz, a web framework for self use",
   "main": "index.js",
   "scripts": {
@@ -44,7 +44,7 @@
     "ms": "^1.0.0",
     "nunjucks": "^3.0.0",
     "sequelize": "^3.30.4",
-    "tiz-sequelize": "*"
+    "tiz-sequelize": "^0.0.2"
   },
   "devDependencies": {
     "codecov": "^1.0.1",

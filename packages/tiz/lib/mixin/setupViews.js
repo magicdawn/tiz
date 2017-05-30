@@ -16,7 +16,7 @@ module.exports = function() {
     defaultExt: config.extension,
   })
 
-  for (let name of config.map) {
+  for (let name in config.map) {
     const ext = name
     const engineName = config.map[name]
     this.engine(ext, consolidate[engineName])

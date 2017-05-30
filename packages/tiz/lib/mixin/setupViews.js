@@ -32,6 +32,7 @@ module.exports = function() {
       // if `consolidate` can not require('engine')
       // we manualy set `consolidate.requires` = `require from projectHome (engineName)`
       // see node core flag, symlink
+      debug('consolidate will not require("%s"), loading it from projectHome', engineName)
       const engineModule = importFromProjectHome(engineName)
       consolidate.requires[engineName] = engineModule
     }

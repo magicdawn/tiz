@@ -1,0 +1,6 @@
+#
+# common env config
+#
+
+# app port
+port: 5000

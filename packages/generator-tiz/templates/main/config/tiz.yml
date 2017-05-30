@@ -1,0 +1,10 @@
+#
+# Core Settings
+#
+
+globals:
+  models: true
+  services: true
+
+plugins:
+  - tiz-sequelize

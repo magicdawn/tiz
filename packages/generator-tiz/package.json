@@ -1,0 +1,29 @@
+{
+  "name": "generator-tiz",
+  "version": "0.0.1",
+  "description": "yeoman generator for tiz",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magicdawn/tiz.git"
+  },
+  "keywords": [
+    "yeoman",
+    "koa",
+    "tiz",
+    "generator"
+  ],
+  "author": "magicdawn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magicdawn/tiz/issues"
+  },
+  "homepage": "https://github.com/magicdawn/tiz#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "yeoman-generator": "^1.1.1"
+  }
+}

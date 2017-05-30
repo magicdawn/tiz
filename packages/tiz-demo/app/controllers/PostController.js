@@ -3,7 +3,7 @@
 module.exports = {
   async all(ctx) {
     const arr = await Post.findAll()
-    ctx.body = {
+    this.body = {
       success: true,
       data: {
         list: arr

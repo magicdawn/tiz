@@ -1,6 +1,7 @@
 #
 # Sequelize options
 # https://sequelize.readthedocs.io/en/v3/api/sequelize/
+#
 
 ## enable plugin
 enable: true
@@ -10,6 +11,8 @@ root: app/models
 
 ## sequelize options
 options:
+  dialect: mysql
+
   # pool
   pool:
     max: 5
@@ -17,7 +20,7 @@ options:
     idle: 10000
 
   # log
-  logging: null
+  logging: false
 
 #
 # DB connections
@@ -27,10 +30,8 @@ default-connection: mysql-local
 
 connections:
   mysql-local:
-    dialect: mysql
     user: root
     database: test
   mysql-local-2:
-    dialect: mysql
     user: root
     database: test

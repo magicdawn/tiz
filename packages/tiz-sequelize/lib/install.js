@@ -35,7 +35,7 @@ module.exports = function() {
 
   for (let name in config.connections) {
     const conn = config.connections[name]
-    const options = Object.assign({}, this.config.sequelize, conn)
+    const options = Object.assign({}, config.options, conn)
     debug('new sequelize: name = %s, args = %s %s %s %j', name, conn.database, conn.user, conn.password, options)
     this.sequelizes[name] = new Sequelize(conn.database, conn.user, conn.password, options)
   }
@@ -45,10 +45,17 @@ module.exports = function() {
    */
 
   const build = (dir, name) => {
-    const seq = this.sequelizes[name]
     const files = this._getJsFiles(dir)
+
     for (let file of files) {
-      const Model = seq.import(pathjoin(this.projectHome, dir, file))
+      const modelFile = pathjoin(this.projectHome, dir, file)
+      const modelDef = require(modelFile)
+
+      // decide which connections to use
+      const conn = modelDef.connection || config['default-connection']
+      const seq = this.sequelizes[conn]
+
+      const Model = seq.import(modelFile)
       let key = this._util.basenameNoExt(file)
       key = _.camelCase(key)
       const Key = _.upperFirst(key)
@@ -66,15 +73,6 @@ module.exports = function() {
     }
   }
 
-  for (let name in this.sequelizes) {
-    let dir = config.root || 'app/models'
-
-    // none default connection
-    if (name !== config['default-connection']) {
-      dir += '/' + name
-    }
-
-    // build models
-    build(dir, name)
-  }
+  let dir = config.root || 'app/models'
+  build(dir)
 }

@@ -1,6 +1,6 @@
 {
   "name": "tiz-sequelize",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Nimitiz, a web framework for self use",
   "main": "index.js",
   "scripts": {
@@ -36,5 +36,10 @@
     "debug": "^2.6.8",
     "lodash": "^4.17.4",
     "sequelize": "^3.30.4"
-  }
+  },
+  "files": [
+    "package.json",
+    "index.js",
+    "lib"
+  ]
 }

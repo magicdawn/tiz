@@ -1,6 +1,6 @@
 {
   "name": "generator-tiz",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "yeoman generator for tiz",
   "main": "app/index.js",
   "scripts": {
@@ -25,5 +25,10 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "yeoman-generator": "^1.1.1"
-  }
+  },
+  "files": [
+    "app",
+    "templates",
+    "package.json"
+  ]
 }

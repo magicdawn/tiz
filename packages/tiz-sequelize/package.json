@@ -3,9 +3,6 @@
   "version": "0.0.2",
   "description": "Nimitiz, a web framework for self use",
   "main": "index.js",
-  "bin": {
-    "tiz-sequelize": "bin.js"
-  },
   "scripts": {
     "test": "mocha",
     "test-cover": "istanbul cover _mocha -- -u exports",
@@ -17,7 +14,9 @@
   },
   "keywords": [
     "tiz",
-    "eslint"
+    "tiz-plugin",
+    "sequelize",
+    "orm",
   ],
   "author": "magicdawn",
   "license": "MIT",

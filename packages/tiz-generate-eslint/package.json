@@ -17,7 +17,8 @@
   },
   "keywords": [
     "tiz",
-    "eslint"
+    "eslint",
+    "tiz-cli"
   ],
   "author": "magicdawn",
   "license": "MIT",

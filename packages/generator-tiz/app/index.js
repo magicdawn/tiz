@@ -62,15 +62,16 @@ module.exports = class TizAppGenerator extends Base {
       dependencies: {
         tiz: '*',
         'log-reject-error': '*',
+        nunjucks: '*',
       },
       scripts: {
         test: 'mocha',
       },
       devDependencies: {
-        'mocha': '*',
-        'supertest': '*',
-        'should': '*',
-      }
+        mocha: '*',
+        supertest: '*',
+        should: '*',
+      },
     }
     src = _.pick(src, 'dependencies', 'devDependencies', 'scripts')
 

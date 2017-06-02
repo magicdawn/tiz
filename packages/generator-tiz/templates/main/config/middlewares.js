@@ -9,7 +9,6 @@ module.exports = [
   'static',
   'logger',
   'bodyparser',
-  'views',
   'routing',
 ]
 

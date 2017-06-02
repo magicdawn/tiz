@@ -1,6 +1,6 @@
 {
   "name": "generator-tiz",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "yeoman generator for tiz",
   "main": "app/index.js",
   "scripts": {

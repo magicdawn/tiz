@@ -20,6 +20,20 @@ const Tiz = module.exports = class Tiz extends Koa {
   }
 
   /**
+   * override default `inspect` -> `toJSON`
+   */
+
+  toJSON() {
+    const ret = super.toJSON()
+    Object.assign(ret, {
+      config: this.config,
+      models: Object.keys(this.models),
+      services: Object.keys(this.services),
+    })
+    return ret
+  }
+
+  /**
    * path.resolve bind for projectHome
    */
 

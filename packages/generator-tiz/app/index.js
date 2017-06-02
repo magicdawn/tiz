@@ -11,9 +11,9 @@ const glob = require('glob')
  * My Generator
  */
 
-const Generator = module.exports = class TizAppGenerator extends Base {
-  constructor($0, $1, $2) {
-    super($0, $1, $2)
+module.exports = class TizAppGenerator extends Base {
+  constructor(args, opts) {
+    super(args, opts)
     this.sourceRoot(pathjoin(__dirname, '../templates/main'))
   }
 
@@ -25,13 +25,8 @@ const Generator = module.exports = class TizAppGenerator extends Base {
     const ok = this._checkPackageJson()
     if (!ok) return
 
-    // 复制文件
-    // .eslintrc.yml .jsbeautifyrc .travis.yml .gitignore test/mocha.opts CHANGELOG.md
     this._copyFiles()
 
-    // 生成package.json
-    //    deps
-    //    scripts test / test-cover
     this._modifyPackageJson()
   }
 

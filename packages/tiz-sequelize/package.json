@@ -16,7 +16,7 @@
     "tiz",
     "tiz-plugin",
     "sequelize",
-    "orm",
+    "orm"
   ],
   "author": "magicdawn",
   "license": "MIT",

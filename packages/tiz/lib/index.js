@@ -29,6 +29,7 @@ const Tiz = module.exports = class Tiz extends Koa {
       config: this.config,
       models: Object.keys(this.models),
       services: Object.keys(this.services),
+      tasks: Object.keys(this.tasks),
     })
     return ret
   }
@@ -70,6 +71,9 @@ const Tiz = module.exports = class Tiz extends Koa {
     if (fs.existsSync(bsp)) {
       await require(bsp).call(this, this)
     }
+
+    // tasks
+    this.setupTasks()
 
     // listen
     if (this.config.listen !== false) {

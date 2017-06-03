@@ -15,5 +15,5 @@ app.locals = {
 }
 
 app.start().then(() => {
-  console.log(app.config)
+  console.log(app)
 })

@@ -5,26 +5,49 @@
  */
 
 const assert = require('assert')
-const multer = require('multer')
-
-// expose originalMulter
-exports.originalMulter = multer
-exports.diskStorage = multer.diskStorage
-exports.memoryStorage = multer.memoryStorage
+const multerPkg = require('multer')
+const _ = require('lodash')
 
 // methods need to be patched
 const methods = ['any', 'array', 'fields', 'none', 'single']
 
-for (let name of methods) {
-  // require('tiz-multer').single(...)
-  exports[name] = function(...args) {
-    const expressMiddleware = multer[name](...args)
-    return async (ctx, next) => {
-      await work(ctx, expressMiddleware)
-      return next()
+/**
+ * @example
+ *
+ * ```js
+ * const multer = require('tiz-multer')
+ * const upload = multer({
+ *  dest: '/data/uploads'
+ * })
+ *
+ * router.get(upload.single('image'), async ctx => {
+ *  // blabla
+ * })
+ * ```
+ */
+
+exports = module.exports = function multer(...args) {
+  const upload = multerPkg(...args)
+  const ret = {}
+
+  for (let name of methods) {
+    // require('tiz-multer').single(...)
+    ret[name] = function(...args) {
+      const expressMiddleware = upload[name](...args)
+      return async (ctx, next) => {
+        await work(ctx, expressMiddleware)
+        return next()
+      }
     }
   }
+
+  return ret
 }
+
+// expose originalMulter
+exports.multerPkg = multerPkg
+exports.diskStorage = multerPkg.diskStorage
+exports.memoryStorage = multerPkg.memoryStorage
 
 /**
  * file / files / body
@@ -76,8 +99,11 @@ function work(ctx, expressMiddleware) {
 exports.install = function(app) {
   app.context.multer = {}
   for (let name of methods) {
-    app.context.multer[name] = async function(...args) {
-      const expressMiddleware = multer[name](...args)
+    const key = 'upload' + _.upperFirst(name)
+    app.context[key] = async function(...args) {
+      const options = args[args.length - 1]
+      const upload = multerPkg(options)
+      const expressMiddleware = upload[name](...args)
       const ctx = this
       return work(ctx, expressMiddleware)
     }

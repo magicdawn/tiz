@@ -1,6 +1,6 @@
 {
   "name": "tiz-multer",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "multipart for tiz",
   "main": "index.js",
   "scripts": {

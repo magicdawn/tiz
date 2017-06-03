@@ -54,6 +54,9 @@ const Tiz = module.exports = class Tiz extends Koa {
     // read configs
     this.config = this.readConfig(startConfig)
 
+    // extends
+    this.setupExtends()
+
     // service
     this.setupServices()
 

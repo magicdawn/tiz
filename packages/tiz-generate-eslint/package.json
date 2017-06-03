@@ -1,6 +1,6 @@
 {
   "name": "tiz-generate-eslint",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Nimitiz, a web framework for self use",
   "main": "index.js",
   "bin": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/magicdawn/tiz",
   "dependencies": {
-    "tiz": "^0.0.5"
+    "tiz": "^0.0.6"
   },
   "devDependencies": {
     "codecov": "^1.0.1",

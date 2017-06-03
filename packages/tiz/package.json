@@ -1,6 +1,6 @@
 {
   "name": "tiz",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Nimitiz, a web framework for self use",
   "main": "index.js",
   "scripts": {

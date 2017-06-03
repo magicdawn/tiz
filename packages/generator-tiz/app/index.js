@@ -63,6 +63,7 @@ module.exports = class TizAppGenerator extends Base {
         tiz: '*',
         'log-reject-error': '*',
         nunjucks: '*',
+        'node-schedule': '*',
       },
       scripts: {
         test: 'mocha',

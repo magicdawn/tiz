@@ -21,7 +21,7 @@ module.exports = class TizAppGenerator extends Base {
    * we starts here
    */
 
-  default () {
+  default() {
     const ok = this._checkPackageJson()
     if (!ok) return
 
@@ -60,10 +60,12 @@ module.exports = class TizAppGenerator extends Base {
     let dest = this.fs.readJSON(destPath)
     let src = {
       dependencies: {
-        tiz: '*',
         'log-reject-error': '*',
-        nunjucks: '*',
         'node-schedule': '*',
+        tiz: '*',
+        'tiz-sequelize': '*',
+        'tiz-multer': '*',
+        nunjucks: '*',
       },
       scripts: {
         test: 'mocha',

@@ -9,11 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa-multer": "^1.0.1",
     "log-reject-error": "^0.0.2",
     "node-schedule": "^1.2.3",
     "nunjucks": "^3.0.0",
-    "tiz": "^0.0.2"
+    "tiz": "*",
+    "tiz-sequelize": "*",
+    "tiz-multer": "*"
   },
   "devDependencies": {
     "eslint": "^3.18.0",

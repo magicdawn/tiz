@@ -39,13 +39,11 @@
     "koa-favicon": "^2.0.0",
     "koa-generic-views": "^0.1.0",
     "koa-logger": "^2.0.1",
-    "koa-multer": "^1.0.1",
     "koa-send": "^3.3.0",
     "koa-static": "^3.0.0",
     "minimist": "^1.2.0",
     "ms": "^1.0.0",
-    "resolve-from": "^3.0.0",
-    "tiz-sequelize": "^0.0.5"
+    "resolve-from": "^3.0.0"
   },
   "devDependencies": {
     "codecov": "^1.0.1",

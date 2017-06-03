@@ -1,6 +1,7 @@
 'use strict'
 
 const debug = require('debug')('tiz:setupPlugins')
+const importForm = require('import-from')
 
 /**
  * 加载插件
@@ -13,9 +14,11 @@ module.exports = function() {
     return
   }
 
+  const importPlugin = importForm.bind(null, this.projectHome)
+
   for (let p of plugins) {
     if (typeof p === 'string') {
-      p = require(p) // load module
+      p = importPlugin(p) // load module
     }
 
     // call `plugin.install(app)`

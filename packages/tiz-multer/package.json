@@ -1,11 +1,8 @@
 {
-  "name": "tiz-generate-eslint",
-  "version": "0.0.6",
-  "description": "Nimitiz, a web framework for self use",
+  "name": "tiz-multer",
+  "version": "0.0.1",
+  "description": "multipart for tiz",
   "main": "index.js",
-  "bin": {
-    "tiz-generate-eslint": "bin.js"
-  },
   "scripts": {
     "test": "mocha",
     "test-cover": "istanbul cover _mocha -- -u exports",
@@ -16,9 +13,9 @@
     "url": "git+https://github.com/magicdawn/tiz.git"
   },
   "keywords": [
-    "tiz",
-    "eslint",
-    "tiz-cli"
+    "multipart",
+    "multer",
+    "koa-multer"
   ],
   "author": "magicdawn",
   "license": "MIT",
@@ -26,9 +23,6 @@
     "url": "https://github.com/magicdawn/tiz/issues"
   },
   "homepage": "https://github.com/magicdawn/tiz",
-  "dependencies": {
-    "tiz": "*"
-  },
   "devDependencies": {
     "codecov": "^1.0.1",
     "eslint": "^3.18.0",
@@ -37,9 +31,12 @@
     "mocha": "^2.4.5",
     "should": "^8.3.1"
   },
+  "dependencies": {
+    "multer": "^1.3.0"
+  },
   "files": [
     "package.json",
     "index.js",
-    "bin.js"
+    "lib"
   ]
 }

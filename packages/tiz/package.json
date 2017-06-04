@@ -4,8 +4,8 @@
   "description": "Nimitiz, a web framework for self use",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test-cover": "istanbul cover _mocha -- -u exports",
+    "test": "NODE_ENV=unittest mocha",
+    "test-cover": "NODE_ENV=unittest istanbul cover _mocha",
     "report-cover": "codecov"
   },
   "repository": {
@@ -46,12 +46,12 @@
     "resolve-from": "^3.0.0"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
+    "codecov": "^2.2.0",
     "eslint": "^3.18.0",
-    "istanbul": "^0.4.3",
+    "istanbul": "^1.1.0-alpha.1",
     "lerna": "^2.0.0-rc.1",
-    "mocha": "^2.4.5",
-    "should": "^8.3.1"
+    "mocha": "^3.4.2",
+    "should": "^11.2.1"
   },
   "files": [
     "package.json",

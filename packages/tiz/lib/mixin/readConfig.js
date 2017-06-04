@@ -11,7 +11,14 @@ const glob = require('glob')
 const yaml = require('js-yaml')
 const debug = require('debug')('tiz:config')
 const LocalUtil = require('../util.js')
-const argv = require('minimist')(process.argv.slice(2))
+const minimist = require('minimist')
+
+// _.mergeWith customizer
+const ARRAY_MERGER = function(cur, sourceValue) {
+  if (Array.isArray(sourceValue)) {
+    return sourceValue
+  }
+}
 
 const load = filepath => {
   const ext = path.extname(filepath).slice(1)
@@ -58,7 +65,7 @@ module.exports = function(startConfig) {
     // merge options
     const local = {}
     local[key] = cur
-    _.merge(ret, local)
+    _.mergeWith(ret, local, ARRAY_MERGER)
   }
 
   /**
@@ -70,28 +77,26 @@ module.exports = function(startConfig) {
   })
 
   // default env
-  const defaultEnvFile = _.find(envFiles, file => LocalUtil.basenameNoExt(file) === 'default')
+  const defaultEnvFile = _.find(
+    envFiles,
+    file => LocalUtil.basenameNoExt(file) === 'default'
+  )
   if (defaultEnvFile) {
     const env = load(this.configHome + '/env/' + defaultEnvFile)
     debug('env default: %j', env)
-    _.merge(ret, env)
+    _.mergeWith(ret, env, ARRAY_MERGER)
   }
 
   // koa Application, this.env
-  const envFile = _.find(envFiles, file => LocalUtil.basenameNoExt(file) === this.env)
+  const envFile = _.find(
+    envFiles,
+    file => LocalUtil.basenameNoExt(file) === this.env
+  )
   if (envFile) {
     const env = load(this.configHome + '/env/' + envFile)
     debug('env %s: %j', this.env, env)
-    _.merge(ret, env)
+    _.mergeWith(ret, env, ARRAY_MERGER)
   }
-
-  // 命令行参数
-  const options = _.omit(argv, ['_'])
-  for (let key of Object.keys(options)) {
-    let val = options[key]
-    options[key] = handleValue(val)
-  }
-  _.merge(ret, options)
 
   // process.env
   const envNames = Object.keys(process.env).filter(s => /^tiz_/.test(s))
@@ -104,9 +109,22 @@ module.exports = function(startConfig) {
     _.set(ret, configKey, configVal)
   }
 
+  // 命令行参数
+  // --hello.world
+  const argv = minimist(process.argv.slice(2))
+  const options = _.omit(argv, ['_'])
+  for (let key of Object.keys(options)) {
+    let val = options[key]
+    val = handleValue(val)
+    _.set(ret, key, val)
+  }
+
   // port, PORT
   const PORT = process.env.PORT
-  if (typeof PORT === 'number' || (typeof PORT === 'string' && /^\d+$/.test(PORT))) {
+  if (
+    typeof PORT === 'number' ||
+    (typeof PORT === 'string' && /^\d+$/.test(PORT))
+  ) {
     ret.port = Number(PORT)
   }
 

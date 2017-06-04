@@ -5,6 +5,7 @@
 globals:
   models: true
   services: true
+  tasks: true
 
 plugins:
   - tiz-sequelize

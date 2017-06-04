@@ -17,7 +17,11 @@
     "tiz-multer": "*"
   },
   "devDependencies": {
+    "codecov": "^2.2.0",
     "eslint": "^3.18.0",
-    "eslint-plugin-magicdawn": "^0.0.2"
+    "eslint-plugin-magicdawn": "^0.0.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.4.2",
+    "should": "^11.2.1"
   }
 }

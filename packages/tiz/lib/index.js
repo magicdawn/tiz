@@ -7,7 +7,7 @@ const Koa = require('koa')
 const mixins = require('./mixin')
 const LocalUtil = require('./util.js')
 
-const Tiz = module.exports = class Tiz extends Koa {
+const Tiz = (module.exports = class Tiz extends Koa {
   constructor(projectHome) {
     super()
 
@@ -29,7 +29,7 @@ const Tiz = module.exports = class Tiz extends Koa {
       config: this.config,
       models: Object.keys(this.models),
       services: Object.keys(this.services),
-      tasks: Object.keys(this.tasks),
+      tasks: Object.keys(this.tasks)
     })
     return ret
   }
@@ -69,28 +69,33 @@ const Tiz = module.exports = class Tiz extends Koa {
     // middlewares
     this.setupMiddlewares()
 
+    // tasks
+    this.setupTasks()
+
     // await bootstrap
     const bsp = this.appHome + '/bootstrap.js'
     if (fs.existsSync(bsp)) {
       await require(bsp).call(this, this)
     }
 
-    // tasks
-    this.setupTasks()
-
     // listen
     if (this.config.listen !== false) {
       await new Promise((resolve, reject) => {
         app.listen(this.config.port, function() {
-          console.log('tiz listening at http://localhost:%s', this.address().port)
+          console.log(
+            'tiz listening at http://localhost:%s',
+            this.address().port
+          )
           app.server = this
           app.emit('ready')
           resolve()
         })
       })
+    } else {
+      app.emit('ready')
     }
   }
-}
+})
 
 /**
  * add mixin

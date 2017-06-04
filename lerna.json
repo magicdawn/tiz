@@ -7,7 +7,9 @@
   "commands": {
     "publish": {
       "ignore": [
-        "tiz-demo"
+        "tiz-demo",
+        "*.test.js",
+        "__test__"
       ]
     }
   }

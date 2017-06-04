@@ -4,8 +4,8 @@
   "description": "multipart for tiz",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test-cover": "istanbul cover _mocha -- -u exports",
+    "_test": "NODE_ENV=unittest mocha",
+    "test-cover": "istanbul cover _mocha",
     "report-cover": "codecov"
   },
   "repository": {

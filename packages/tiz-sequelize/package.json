@@ -4,8 +4,8 @@
   "description": "Nimitiz, a web framework for self use",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test-cover": "istanbul cover _mocha -- -u exports",
+    "_test": "mocha",
+    "test-cover": "istanbul cover _mocha",
     "report-cover": "codecov"
   },
   "repository": {

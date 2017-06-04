@@ -7,7 +7,7 @@
     "tiz-generate-eslint": "bin.js"
   },
   "scripts": {
-    "test": "mocha",
+    "_test": "mocha",
     "test-cover": "istanbul cover _mocha -- -u exports",
     "report-cover": "codecov"
   },
